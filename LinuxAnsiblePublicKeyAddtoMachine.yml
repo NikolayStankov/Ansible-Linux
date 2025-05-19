@@ -1,0 +1,13 @@
+- name: Add a public key to the authorized keys for login on a machine
+  hosts: all
+  become: true
+  gather_facts: false
+
+   
+  tasks:
+  
+    - name: Add public key to authorized  
+      authorized_key:
+       user: root
+       state: present
+       key: '{{ item }}'
